@@ -1,0 +1,14 @@
+import cufflinks
+import numpy as np
+import pandas as pd
+from pylab import plt
+plt.style.use('seaborn')
+%config InlineBackend.figure_format = 'svg'
+
+raw = pd.read_csv("Commodities.csv")
+data = pd.DataFrame(raw)
+
+data['Date'] = pd.to_datetime(data['Date'])
+data.sort_values(by='Date', inplace=True)
+
+data.to_csv('Commodities_Sorted.csv')
